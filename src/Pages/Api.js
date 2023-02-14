@@ -1,45 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
+function Api() {
 
+    const [data, setData] = useState();
 
-function Api()  {
-
-    const [title, setTitle] = React.useState(null);
-    const [price, setPrice] = React.useState(null)
-
-    const myApi = () => {
+    const getData = () => {
         return fetch('https://dummyjson.com/products')
-        .then((response) => response.json())
-        .then(data => {
-            const { products } = data.results[0];
-            setTitle(products.title);
-            setPrice(products.price);
-        });
-    },[]);
+            .then((response) => response.json())
+            .then((data) => setData(data.products));
+    }
+    // console.log(data);
 
-   
-
-
-    React.useEffect(() => {
-        fetch(hello)
-        .then(results => results.json())
-            .then(data => {
-                const { products } = data.results[0];
-                setTitle(products.title);
-                setPrice(products.price);
-            });
+    useEffect(() => {
+        getData();
     }, []);
 
-
-
     return (
-        <>
-            <div>Api</div>
-
-            <div>
-                Name: {!title || !price ? 'No Api Found' : `${title} ${price}`}
-            </div>
-
+        <>{data &&
+            <>
+                <div>
+                    {
+                        data.map((items, index) => {
+                            return (
+                                <div key={index} className='api'>
+                                    <span>{items.id}</span>
+                                    <h4>{items.title}</h4>
+                                    <h6>CateGory = {items.category}</h6>
+                                    <p>{items.description}</p>
+                                    <span>{items.price}</span>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </>
+        }
         </>
     )
 }
