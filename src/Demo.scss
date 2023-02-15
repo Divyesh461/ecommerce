@@ -1,0 +1,39 @@
+$primary-bg: green;
+$digit: red;
+$font-primary: #fff;
+$width: 100%;
+
+.button-basic {
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: $digit;
+}
+
+.service {
+  .sub_service {
+    height: 500px;
+    width: 500px;
+    background-color: $primary-bg;
+    color: $font-primary;
+    &:hover {
+      color: red;
+      background-color: antiquewhite;
+    }
+  }
+  .info {
+    p {
+      margin: 50px;
+      padding: 50px;
+    }
+    color: $digit;
+    margin: 50px;
+    width: $width;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: aquamarine;
+  }
+}

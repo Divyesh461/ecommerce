@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Header from './Components/Header';
 
 function Api1() {
 
@@ -20,6 +21,8 @@ function Api1() {
     return (
 
         <>
+            <Header/>
+
             {user &&
                 <>
                     <div>

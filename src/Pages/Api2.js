@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Header from './Components/Header';
 
 function Api2() {
 
@@ -18,10 +19,11 @@ function Api2() {
 
     return (
         <>
-
             {
                 founder &&
                 <>
+                    <Header/>
+
                     <div>
                         {
                             founder.map((items, index) => {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Header from './Components/Header';
 
 function Api() {
 
@@ -16,8 +17,10 @@ function Api() {
     }, []);
 
     return (
+
         <>{data &&
             <>
+                <Header/>
                 <div>
                     {
                         data.map((items, index) => {

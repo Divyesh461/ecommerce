@@ -1,26 +1,55 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import Header from './Components/Header'
+
 
 function Home() {
     return (
 
         <>
-            <div>
-                <ul className='nav nav-pills'>
-                    <li class='nav-item'>
-                        <Link className='nav-link' to='/'>Home</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link className='nav-link' to='/api'>Api Product</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link className='nav-link' to='/api-1'>Api-1</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link className='nav-link' to='api-2'>Api-2</Link>
-                    </li>
-                </ul>
-            </div>
+
+            <Header/>
+
+            <main className='text-center'>
+
+                <section id="hero1" class="hero">
+                    <div class="inner">
+                        <div class="copy">
+                            <h1>Choice mountains bro</h1>
+                            <p>Its like im actually there! But sitting at a computer. Wow, the future is intense!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content">
+                    <div class="inner">
+                        <div class="copy">
+                            <h1>Amazing copy!</h1>
+                            <p>The words are like jumping out at me man! </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="hero2" class="hero">
+                    <div class="inner">
+                        <div class="copy">
+                            <h1>Dem some big ass caves</h1>
+                            <p>You could probably fit in there ;)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content">
+                    <div class="inner">
+                        <div class="copy">
+                            <h1>An inspiring quote</h1>
+                            <p>/-- file not found --/</p>
+                        </div>
+                    </div>
+                </section>
+
+
+            </main>
+
         </>
 
     )

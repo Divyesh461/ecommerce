@@ -1,28 +1,221 @@
-body{
+body {
   margin: 0;
   padding: 0;
 }
-img{
+
+img {
   height: auto;
-  width: auto;
+  width: 100%;
 }
 
-
-.api{
-    padding: 10px;
-    border-bottom: solid 1px #333;
+.logo {
+  width: 75px;
+  margin-inline: 50px;
 }
-.api{
+
+.header-bar .row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav {
+  align-items: center;
+  justify-content: center;
+}
+
+.header-bar {
+  background-color: #333;
+  margin-bottom: 30px;
+  padding: 15px 0;
+}
+
+.nav-link {
+  color: #FFF !important;
+}
+
+.nav-item a:hover {
+  background-color: #FFF !important;
+  color: #333 !important;
+}
+
+.api {
+  padding: 10px;
+  border-bottom: solid 1px #333;
+}
+
+.api {
   display: flex;
   flex-direction: column;
   gap: 0px;
   align-items: center;
 }
-.api span{
+
+.api span {
   margin-right: 15px;
 }
-p{
+
+api p {
   margin: 0 !important;
   max-width: 500px;
   text-align: center;
+}
+
+.api:nth-child(odd) {
+  background: #d2d2d2;
+}
+
+.api:nth-child(even) {
+  background: #FFF;
+}
+
+
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+header {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+header a {
+  color: white;
+  background: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  padding: 0px 30px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+#hero1 {
+  background: url(https://4.bp.blogspot.com/_AQ0vcRxFu0A/S9shDGGyMTI/AAAAAAAAAYk/kn3WTkY2LoQ/s1600/IMG_0714.JPG);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#hero2 {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21555/Melissani-cave-natural.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.hero,
+.content {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.inner {
+  min-height: 300px;
+  position: relative;
+}
+
+.hero .inner {
+  background: rgba(0, 0, 0, 0.7) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAD0lEQVQIW2NkQABjRmQOAAM+AGkQsDBSAAAAAElFTkSuQmCC) repeat;
+}
+
+
+.copy {
+  position: absolute;
+  top: 50%;
+  height: 10em;
+  margin-top: -5em;
+  width: 100%;
+}
+
+.hero h1,
+.hero p {
+  color: #fff;
+}
+
+.content h1,
+.content p {
+  color: #333;
+}
+
+h1 {
+  margin: 0px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 32px;
+  padding: 0px 20px;
+}
+
+p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  padding: 0px 20px;
+}
+
+
+
+/* Amazon Api CSS Start */
+.amazon {
+  padding: 50px 0;
+}
+
+.amazon .row {
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.row .amazon_products {
+
+  box-shadow: 0px 0px 20px lightgray;
+  height: 400px;
+  width: 400px;
+}
+
+.amazon .row .amazon_products img {
+  width: 300px;
+  height: 300px;
+  transition: 0.5s;
+}
+
+.amazon_products img:hover {
+  transition: 1s;
+}
+
+.row .products:hover .img_item {
+  transform: scale(0.8);
+}
+
+.products:hover {
+  cursor: pointer;
+}
+
+.row .products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.products p {
+  font-size: 28px;
 }
