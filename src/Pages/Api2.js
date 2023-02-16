@@ -23,7 +23,6 @@ function Api2() {
                 founder &&
                 <>
                     <Header/>
-
                     <div>
                         {
                             founder.map((items, index) => {

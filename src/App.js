@@ -10,6 +10,7 @@ import Api from './Pages/Api';
 import Api1 from './Pages/Api1';
 import Api2 from './Pages/Api2';
 import Amazon from './Pages/Amazon';
+import Loader from './Pages/Components/Loader';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path='/api-1' element={<Api1/>} />
           <Route exact path='/api-2' element={<Api2/>} />
           <Route exact path='/amazon' element={<Amazon/>} />
+          <Route exact path='/loader' element={<Loader/>} />
         </Routes>
       </BrowserRouter>
     </>

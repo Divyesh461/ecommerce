@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import Rating from 'react-rating';
+import ReactStars from "react-rating-stars-component";
 import Header from './Components/Header';
 
 
 
 
 import '../Demo.scss';
+import Loader from './Components/Loader';
 
 function Amazon() {
+
+    const{LoaderShow , setLoaderShow} = useState(false);
+
+
+    const ratingChanged = (newRating) => {
+        console.log(newRating);
+    };
+
+    const [input, setInput] = useState();
 
     const [products, setProducts] = useState();
 
@@ -15,23 +25,36 @@ function Amazon() {
         return fetch('https://dummyjson.com/products')
             .then((response) => response.json())
             .then((products) => setProducts(products.products));
-    }
-    console.log(products);
-
-    useEffect(() => {
-        getUser();
-    }, []);
-
-
+        
+        },
+        
+        // console.log(products);
+        setTimeout = () => {
+            setLoaderShow=(false);
+        }
+        
+        useEffect(() => {
+            getUser();
+        }, []);
+        
+    console.log(input);
 
     return (
 
         <>
+            { LoaderShow && <Loader /> }
+
             <Header />
+
+
+            <div className='d-block text-center'>
+                <input className='border rounded p-3 text-white bg-dark' value={input} onInput={e => setInput(e.target.value)} />
+            </div>
+
 
             {products &&
                 <>
-                    <section className='amazon'>    
+                    <section className='amazon'>
                         <div className='container'>
                             <div className='row'>
                                 {
@@ -44,15 +67,26 @@ function Amazon() {
                                                     <p>${items.price}</p>
                                                     <p>{items.discountPercentage}%</p>
                                                 </div>
-                                                <p className='w-100'><Rating/></p>
+                                                <p className='w-100'>
+                                                    <ReactStars
+                                                        count={5}
+                                                        onChange={ratingChanged}
+                                                        size={36}
+                                                        isHalf={true}
+                                                        emptyIcon={<i className="far fa-star"></i>}
+                                                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                                        fullIcon={<i className="fa fa-star"></i>}
+                                                        activeColor="#FFBC06"
+                                                    />
+                                                </p>
                                             </div>
                                         )
                                     })
                                 }
                             </div>
                         </div>
-                    </section> 
-                   </>
+                    </section>
+                </>
             }
         </>
     )
