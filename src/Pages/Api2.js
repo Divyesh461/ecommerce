@@ -1,28 +1,40 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Header from './Components/Header';
+import Loader from './Components/Loader';
 
 function Api2() {
 
     const [founder, setFounder] = useState();
+    const [loadershow, setLoadershow] = useState(false);
 
-    const getFounder = () => {
-        return fetch('https://jsonplaceholder.typicode.com/posts')
-            .then((response) => response.json())
-            .then((founder) => setFounder(founder));
+
+    const getData = () => {
+        setLoadershow(true)
+        axios({
+            method: 'get',
+            url: 'https://dummyjson.com/products',
+        })
+            .then((response) => {
+                setFounder(response.data.products)
+                setLoadershow(false);
+            });
     }
 
     // console.log(founder);
 
     useEffect(() => {
-        getFounder();
+        getData();
     }, []);
 
     return (
         <>
+            {loadershow && <Loader />}
+
+            <Header />
             {
                 founder &&
                 <>
-                    <Header/>
                     <div>
                         {
                             founder.map((items, index) => {

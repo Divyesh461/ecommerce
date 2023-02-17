@@ -1,48 +1,60 @@
 import React, { useEffect, useState } from 'react'
-import ReactStars from "react-rating-stars-component";
 import Header from './Components/Header';
-
-
-
-
 import '../Demo.scss';
 import Loader from './Components/Loader';
+import axios from 'axios';
+import Footer from './Components/Footer';
+import { Link, useParamss } from 'react-router-dom';
+
+
 
 function Amazon() {
 
-    const{LoaderShow , setLoaderShow} = useState(false);
+    // const { id } = useParams()
+    // console.log(id);
+
+    const query = new URLSearchParams(this.props.location.search);
+
+    const token = query.get('id')
+    console.log(token);
 
 
-    const ratingChanged = (newRating) => {
-        console.log(newRating);
-    };
+    const handleClick = (c) => {
+        (c).preventDefault();
+        console.log('The link was clicked.');
+    }
 
+
+    const [getproducts, setgetProducts] = useState();
+    const [loadershow, setLoadershow] = useState(false);
     const [input, setInput] = useState();
 
-    const [products, setProducts] = useState();
+    const getData = () => {
+        setLoadershow(true)
+        axios({
+            method: 'get',
+            url: 'https://dummyjson.com/products',
+        })
+            .then((response) => {
+                setgetProducts(response.data.products)
+                setLoadershow(false);
+            });
+    }
+    // console.log();
 
-    const getUser = () => {
-        return fetch('https://dummyjson.com/products')
-            .then((response) => response.json())
-            .then((products) => setProducts(products.products));
-        
-        },
-        
-        // console.log(products);
-        setTimeout = () => {
-            setLoaderShow=(false);
-        }
-        
-        useEffect(() => {
-            getUser();
-        }, []);
-        
-    console.log(input);
 
+    useEffect(() => {
+        getData();
+    }, []);
     return (
 
         <>
-            { LoaderShow && <Loader /> }
+            {loadershow && <Loader />}
+
+            
+            <Link to="/amazon/:id">Users</Link>
+
+
 
             <Header />
 
@@ -52,33 +64,32 @@ function Amazon() {
             </div>
 
 
-            {products &&
+            {getproducts &&
                 <>
                     <section className='amazon'>
                         <div className='container'>
                             <div className='row'>
                                 {
-                                    products.map((items, index) => {
+                                    getproducts.map((items, index) => {
                                         return (
-                                            <div key={index} className='col-md-4 amazon_products products'>
-                                                <img className='img_item' src={items.thumbnail} alt="no found" />
-                                                <h4>{items.title}</h4>
-                                                <div className='d-inline-flex justify-content-between w-100'>
-                                                    <p>${items.price}</p>
-                                                    <p>{items.discountPercentage}%</p>
+                                            <div key={index} onClick={handleClick} className='col-md-3'>
+                                                <div className=' amazon_products products'>
+                                                    <img className='img_item' src={items.thumbnail} alt="no found" />
+                                                    <div className='product_info'>
+                                                        <h4>{items.title}</h4>
+                                                        <div className='m-0'>
+                                                            <p className='discount_price m-0'>{items.discountPercentage}%off</p>
+                                                            <span>Deal of the day</span>
+                                                        </div>
+                                                        <div className='d-inline-block'>
+                                                            <span className='whole_price'>${items.price}<sup>00</sup></span>
+                                                            <span className='mrp_price'>M.R.P.:<del>${items.price}</del></span>
+                                                        </div>
+                                                        <h4>
+                                                            <Link to={`/amazon/${items.id}`}>Buy Now</Link>
+                                                        </h4>
+                                                    </div>
                                                 </div>
-                                                <p className='w-100'>
-                                                    <ReactStars
-                                                        count={5}
-                                                        onChange={ratingChanged}
-                                                        size={36}
-                                                        isHalf={true}
-                                                        emptyIcon={<i className="far fa-star"></i>}
-                                                        halfIcon={<i className="fa fa-star-half-alt"></i>}
-                                                        fullIcon={<i className="fa fa-star"></i>}
-                                                        activeColor="#FFBC06"
-                                                    />
-                                                </p>
                                             </div>
                                         )
                                     })
@@ -86,6 +97,8 @@ function Amazon() {
                             </div>
                         </div>
                     </section>
+
+                    <Footer />
                 </>
             }
         </>

@@ -11,6 +11,7 @@ import Api1 from './Pages/Api1';
 import Api2 from './Pages/Api2';
 import Amazon from './Pages/Amazon';
 import Loader from './Pages/Components/Loader';
+import SingleProduct from './Pages/SingleProduct';
 
 function App() {
 
@@ -18,13 +19,16 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/' element={<Home/>} />
-          <Route exact path='/api' element={<Api/>} />
-          <Route exact path='/api-1' element={<Api1/>} />
-          <Route exact path='/api-2' element={<Api2/>} />
-          <Route exact path='/amazon' element={<Amazon/>} />
-          <Route exact path='/loader' element={<Loader/>} />
-        </Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/api' element={<Api />} />
+          <Route exact path='/api-1' element={<Api1 />} />
+          <Route exact path='/api-2' element={<Api2 />} />
+          <Route exact path='/amazon' element={<Amazon />} />
+          <Route exact path='/loader' element={<Loader />} />
+          <Route exact path='/singleproduct' element={<SingleProduct />} />
+
+          <Route path='/singleproduct/:id' component={Amazon}/>
+        </Routes>SingleProduct
       </BrowserRouter>
     </>
   );
