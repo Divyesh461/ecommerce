@@ -1,39 +1,58 @@
-$primary-bg: green;
-$digit: red;
-$font-primary: #fff;
-$width: 100%;
-
-.button-basic {
-  border: none;
-  padding: 15px 30px;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  color: $digit;
+.item-product {
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  // &:hover {
+  // }
 }
 
-.service {
-  .sub_service {
-    height: 500px;
-    width: 500px;
-    background-color: $primary-bg;
-    color: $font-primary;
-    &:hover {
-      color: red;
-      background-color: antiquewhite;
-    }
+.product-info {
+  font-family: sans-serif;
+  padding: 0 30px;
+  h2 {
+    font-family: fantasy;
+    font-size: 48px;
+    letter-spacing: 3px;
   }
-  .info {
-    p {
-      margin: 50px;
-      padding: 50px;
-    }
-    color: $digit;
-    margin: 50px;
-    width: $width;
+  h3 {
+    text-transform: capitalize;
   }
-  &:hover {
-    cursor: pointer;
-    background-color: aquamarine;
+  p {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0;
   }
+}
+
+.price-head span{
+  margin-right: 30px;
+}
+
+.product-price {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: cursive;
+  color: #cc0c39;
+}
+.discount-price {
+  background-color: #cc0c39;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 2px;
+  padding: 5px;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.rating{
+  color: #FFbc06 ;
+  font-size: 22px;
+}
+
+.nav-pills img{
+  width: 80px;
+  height: 70px;
 }

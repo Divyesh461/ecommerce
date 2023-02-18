@@ -15,6 +15,8 @@ import SingleProduct from './Pages/SingleProduct';
 
 function App() {
 
+
+
   return (
     <>
       <BrowserRouter>
@@ -27,7 +29,8 @@ function App() {
           <Route exact path='/loader' element={<Loader />} />
           <Route exact path='/singleproduct' element={<SingleProduct />} />
 
-          <Route path='/singleproduct/:id' component={Amazon}/>
+          <Route path='/amazon/:id' element={<SingleProduct/>}/>
+
         </Routes>SingleProduct
       </BrowserRouter>
     </>

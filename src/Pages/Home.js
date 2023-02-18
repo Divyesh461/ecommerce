@@ -6,7 +6,6 @@ function Home() {
     return (
 
         <>
-
             <Header/>
 
             <main className='text-center'>

@@ -4,19 +4,13 @@ import '../Demo.scss';
 import Loader from './Components/Loader';
 import axios from 'axios';
 import Footer from './Components/Footer';
-import { Link, useParamss } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
 function Amazon() {
 
-    // const { id } = useParams()
-    // console.log(id);
 
-    const query = new URLSearchParams(this.props.location.search);
-
-    const token = query.get('id')
-    console.log(token);
 
 
     const handleClick = (c) => {
@@ -51,18 +45,11 @@ function Amazon() {
         <>
             {loadershow && <Loader />}
 
-            
-            <Link to="/amazon/:id">Users</Link>
-
-
-
             <Header />
-
 
             <div className='d-block text-center'>
                 <input className='border rounded p-3 text-white bg-dark' value={input} onInput={e => setInput(e.target.value)} />
             </div>
-
 
             {getproducts &&
                 <>

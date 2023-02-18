@@ -7,6 +7,20 @@ img {
   height: auto;
   width: 100%;
 }
+/* Loader Start */
+.loader {
+  background: #333;
+  filter: blur(1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 999;
+}
+/* Loader End */
 
 .logo {
   width: 75px;
@@ -84,28 +98,8 @@ body {
   box-sizing: border-box;
 }
 
-header {
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-  height: 60px;
-  background: rgba(0, 0, 0, 0.1);
-}
 
-header a {
-  color: white;
-  background: rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  padding: 0px 30px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  font-family: 'Roboto Slab', serif;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-}
+
 
 #hero1 {
   background: url(https://4.bp.blogspot.com/_AQ0vcRxFu0A/S9shDGGyMTI/AAAAAAAAAYk/kn3WTkY2LoQ/s1600/IMG_0714.JPG);
@@ -129,7 +123,7 @@ header a {
 }
 
 .inner {
-  min-height: 300px;
+  min-height: 450px;
   position: relative;
 }
 
@@ -265,7 +259,7 @@ p {
 
 
 
-
+/* Footer Start */
 
 .footer {
   background-color: #333;
@@ -275,20 +269,6 @@ p {
   text-decoration: none;
 }
 
+/* Footer End */
 
 
-
-
-
-
-.loader {
-  background: #333;
-  filter: blur(1px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  min-height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
