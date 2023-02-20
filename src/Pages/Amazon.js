@@ -47,6 +47,8 @@ function Amazon() {
 
             <Header />
 
+
+
             <div className='d-block text-center'>
                 <input className='border rounded p-3 text-white bg-dark' value={input} onInput={e => setInput(e.target.value)} />
             </div>
@@ -67,14 +69,15 @@ function Amazon() {
                                                         <div className='m-0'>
                                                             <p className='discount_price m-0'>{items.discountPercentage}%off</p>
                                                             <span>Deal of the day</span>
+                                                            {/* <img src={items.images[]} alt="" /> */}
                                                         </div>
                                                         <div className='d-inline-block'>
                                                             <span className='whole_price'>${items.price}<sup>00</sup></span>
                                                             <span className='mrp_price'>M.R.P.:<del>${items.price}</del></span>
                                                         </div>
-                                                        <h4>
+                                                        <h5>
                                                             <Link to={`/amazon/${items.id}`}>Buy Now</Link>
-                                                        </h4>
+                                                        </h5>
                                                     </div>
                                                 </div>
                                             </div>

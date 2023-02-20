@@ -205,7 +205,6 @@ p {
   cursor: pointer;
 }
 
-/* .row .products {} */
 
 .products p {
   font-size: 28px;
@@ -231,9 +230,6 @@ p {
   font-weight: 700;
   display: inline-block;
 }
-
-/* .amazon .amazon_products {
-} */
 
 .amazon_products span {
   margin: 0 10px;
